@@ -1,0 +1,11 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: basic-application-zapier
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/zapier/zapier-platform-example-apps.git
+    targetRevision: HEAD
+    path: basic-app
