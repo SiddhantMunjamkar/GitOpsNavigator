@@ -6,6 +6,15 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/zapier/zapier-platform-example-apps.git
+    repoURL: https://github.com/SiddhantMunjamkar/GitOpsNavigator.git
     targetRevision: HEAD
-    path: basic-app
+    path: manifests/gitops/basic
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: zapier-basic
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
