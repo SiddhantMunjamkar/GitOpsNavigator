@@ -1,7 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: zapier-basic
 
 resources:
   - ../../base
@@ -9,5 +8,8 @@ resources:
 namePrefix: dev-
 nameSuffix: ""
 
-patchesStrategicMerge:
-  - replicas-patch.yaml
+patchesS:
+  - path: replicas-patch.yaml
+    target:
+      kind: Deployment
+      name: application-zapier-dev
