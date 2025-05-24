@@ -1,12 +1,14 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
-  name: basic-deployment
-  namespace: zapier-basic
-  labels:
-    app: zapier-deployment
+  name: zapier-deployment
 spec:
-  replicas: 3
+  replicas: 2
+  strategy:
+    blueGreen:
+      activeService: zapier-service
+      previewService: zapier-preview-service
+      autoPromotionEnabled: true
   selector:
     matchLabels:
       app: zapier-deployment
@@ -16,7 +18,7 @@ spec:
         app: zapier-deployment
     spec:
       containers:
-        - name: basic-deployment
+        - name: zapier-container
           image: siddhantmunjamkar/zapier-clone:latest
           ports:
             - containerPort: 3000
