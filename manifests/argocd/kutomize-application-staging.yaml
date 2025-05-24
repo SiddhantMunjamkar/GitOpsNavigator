@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: application-zapier-staging
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SiddhantMunjamkar/GitOpsNavigator.git
+    targetRevision: HEAD
+    path: manifests/kustomize/overlays/staging
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: zapier-staging
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

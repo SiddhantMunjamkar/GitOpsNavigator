@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: application-zapier-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SiddhantMunjamkar/GitOpsNavigator.git
+    targetRevision: HEAD
+    path: manifests/kustomize/overlays/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: zapier-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
