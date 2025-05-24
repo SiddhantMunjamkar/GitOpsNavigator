@@ -8,8 +8,5 @@ resources:
 namePrefix: dev-
 nameSuffix: ""
 
-patchesS:
-  - path: replicas-patch.yaml
-    target:
-      kind: Deployment
-      name: application-zapier-dev
+patchesStrategicMerge:
+  - replicas-patch.yaml
