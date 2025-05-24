@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-deployment
+  namespace: zapier-basic
+  labels:
+    app: zapier-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zapier-deployment
+  template:
+    metadata:
+      labels:
+        app: zapier-deployment
+    spec:
+      containers:
+        - name: basic-deployment
+          image: siddhantmunjamkar/zapier-clone:latest
+          ports:
+            - containerPort: 3000
