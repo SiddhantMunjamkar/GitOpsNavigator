@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/SiddhantMunjamkar/GitOpsNavigator.git
     targetRevision: HEAD
-    path: manifests/kustomize/overlays/dev
+    path: manifests/Kustomize/overlays/dev
   destination:
     server: https://kubernetes.default.svc
     namespace: zapier-dev
