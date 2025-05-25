@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: zapier-deployment
-        image: siddhantmunjamkar/zapier-clone:latest
+        image: myimage:latest
         ports:
         - containerPort: 3000
