@@ -22,4 +22,4 @@ spec:
         - name: zapier-deployment
           image: siddhantmunjamkar/zapier-clone:v2
           ports:
-            - containerPort: 3000
+            - containerPort: 80 
