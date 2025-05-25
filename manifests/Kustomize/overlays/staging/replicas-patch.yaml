@@ -4,9 +4,9 @@ metadata:
   name: zapier-deployment
   namespace: zapier-staging
 spec:
-  replicas: 2
+  replicas: 3
   template:
     spec:
       containers:
         - name: zapier-deployment
-          image: siddhantmunjamkar/zapier-clone:v2
+          image: siddhantmunjamkar/zapier-clone:latest
