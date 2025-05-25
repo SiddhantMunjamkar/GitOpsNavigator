@@ -2,7 +2,6 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: zapier-deployment
-  namespace: zapier-staging
 spec:
   replicas: 2
   strategy:
