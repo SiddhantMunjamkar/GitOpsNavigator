@@ -5,8 +5,7 @@ metadata:
 spec:
   ports:
     - port: 3000
-      targetPort: http
-      protocol: TCP
-      name: http
+      targetPort: 3000
+  
   selector:
     app: zapier-deployment
