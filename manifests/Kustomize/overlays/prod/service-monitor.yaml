@@ -7,10 +7,10 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: argo-rollouts
+      app.kubernetes.io/name: zapier-deployment
   namespaceSelector:
     matchNames:
-      - argo-rollouts
+      - zapier-deployment
   endpoints:
     - port: metrics
       interval: 15s
