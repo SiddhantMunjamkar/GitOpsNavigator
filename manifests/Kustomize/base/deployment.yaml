@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: basic-deployment
+  name: zapier-deployment
   labels:
     app: zapier-deployment
 spec:
@@ -15,7 +15,7 @@ spec:
         app: zapier-deployment
     spec:
       containers:
-        - name: basic-deployment
-          image: siddhantmunjamkar/zapier-clone:latest
-          ports:
-            - containerPort: 3000
+      - name: zapier-deployment
+        image: siddhantmunjamkar/zapier-clone:latest
+        ports:
+        - containerPort: 3000
