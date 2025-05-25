@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dev-zapier-deployment
-  namespace: dev
+  name: zapier-deployment  
 spec:
   replicas: 1
