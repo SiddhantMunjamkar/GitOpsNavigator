@@ -9,6 +9,8 @@ spec:
     repoURL: https://github.com/SiddhantMunjamkar/GitOpsNavigator.git
     targetRevision: HEAD
     path: manifests/Kustomize/overlays/staging
+    kustomize:
+      restrictedPodSpec: false
   destination:
     server: https://kubernetes.default.svc
     namespace: zapier-staging
