@@ -8,7 +8,7 @@ resources:
 namePrefix: dev-
 nameSuffix: ""
 
-patchesS:
+patches:
   - path: replicas-patch.yaml
     target:
       kind: Deployment
