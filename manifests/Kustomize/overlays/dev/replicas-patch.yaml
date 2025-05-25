@@ -8,5 +8,5 @@ spec:
   template:
     spec:
       containers:
-        - name: zapier-container
+        - name: zapier-deployment
           image: siddhantmunjamkar/zapier-clone:latest
