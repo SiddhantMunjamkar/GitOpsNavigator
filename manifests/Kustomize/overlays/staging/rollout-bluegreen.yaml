@@ -6,8 +6,8 @@ spec:
   replicas: 2
   strategy:
     blueGreen:
-      activeService: zapier-service
-      previewService: zapier-preview-service
+      activeService: staging-zapier-service
+      previewService: staging-zapier-preview-service
       autoPromotionEnabled: true
   selector:
     matchLabels:
