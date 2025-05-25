@@ -11,7 +11,7 @@ spec:
     path: manifests/Kustomize/overlays/dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: zapier-dev
+
   syncPolicy:
     automated:
       prune: true
