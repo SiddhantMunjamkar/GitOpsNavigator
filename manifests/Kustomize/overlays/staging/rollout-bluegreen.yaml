@@ -18,7 +18,7 @@ spec:
         app: zapier-deployment
     spec:
       containers:
-        - name: zapier-container
+        - name: zapier-deployment
           image: siddhantmunjamkar/zapier-clone:v2
           ports:
             - containerPort: 3000
