@@ -2,6 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: zapier-deployment
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8090"
+
 spec:
   replicas: 4
   strategy:
