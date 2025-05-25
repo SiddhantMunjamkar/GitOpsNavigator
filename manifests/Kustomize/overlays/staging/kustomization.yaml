@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - rollout-bluegreen.yaml
-  - service-rollout-bg.yaml
+  - service-rollout-active.yaml
 
 namePrefix: staging-
 nameSuffix: ""
