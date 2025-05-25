@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - rollout-canary.yaml
   - service-rollout-canary.yaml
-  - ../../../monitoring
+  - service-monitor.yaml
 
 namePrefix: prod-
 nameSuffix: ""
