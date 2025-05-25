@@ -16,7 +16,7 @@ spec:
         grafana:
           adminPassword: "admin"
           service:
-            type: LoadBalancer
+            type: NodePort
   project: default
   syncPolicy:
     automated:
