@@ -2,5 +2,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: zapier-rollout
+  namespace: zapier-prod
 spec:
   replicas: 3
+  template:
+    spec:
+      containers:
+        - name: zapier-deployment
+          image: siddhantmunjamkar/zapier-clone:latest

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: zapier-rollout-prod
+  name: zapier-deployment
 spec:
   replicas: 4
   strategy:
@@ -18,14 +18,14 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app:  zapier-rollout-prod
+      app:  zapier-deployment
   template:
     metadata:
       labels:
-        app:  zapier-rollout-prod
+        app:  zapier-deployment
     spec:
       containers:
-        - name:  zapier-rollout-prod
+        - name:  zapier-deployment
           image: siddhantmunjamkar/zapier-clone:latest
           ports:
             - name: http
