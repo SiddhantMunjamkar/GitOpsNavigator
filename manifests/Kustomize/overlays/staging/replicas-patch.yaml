@@ -4,7 +4,7 @@ metadata:
   name: zapier-deployment
   namespace: zapier-staging
 spec:
-  replicas: 4
+  replicas: 2
   template:
     spec:
       containers:
