@@ -9,4 +9,4 @@ spec:
     spec:
       containers:
         - name: zapier-container
-          image: siddhantmunjamkar/zapier-clone:v2
+          image: siddhantmunjamkar/zapier-clone:latest
