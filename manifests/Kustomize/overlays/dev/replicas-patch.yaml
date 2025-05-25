@@ -2,11 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: zapier-deployment
-  namespace: zapier-dev
+  namespace: zapier-dev  
 spec:
   replicas: 1
-  template:
-    spec:
-      containers:
-        - name: zapier-container
-          image: siddhantmunjamkar/zapier-clone:latest
+  
