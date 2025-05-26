@@ -88,6 +88,43 @@ kubectl apply -n argocd -f manifests/argocd/kustomize-application-staging.yaml
 kubectl apply -n argocd -f manifests/argocd/kustomize-application-prod.yaml
 
 ```
+## 🚦 Deployment Strategies
+
+### 🔧 Dev Environment
+- Basic Kustomize overlays  
+- For development and quick testing
+
+### 🧪 Staging Environment
+- Uses Argo Rollouts with **Blue/Green strategy**  
+- Safer pre-production testing
+
+### 🚀 Production Environment
+- Uses Argo Rollouts with **Canary strategy**
+- Integrated with **Prometheus** for rollback
+- Monitors **latency**, **error rate**, and **success rate**
+
+---
+
+## 📊 Observability Stack
+
+### 🔹 Prometheus
+- Scrapes metrics from rollout controller  
+- Automatically triggers rollback if metrics exceed thresholds
+
+### 🔸 Grafana
+- Connects to Prometheus  
+- Displays real-time monitoring dashboards
+
+---
+
+## ✅ Features
+
+- 🔁 **Automated deployments** via GitOps  
+- 🌀 **Canary & Blue/Green** strategies using Argo Rollouts  
+- 📉 **Metric-based rollback** with Prometheus  
+- 📊 **Real-time dashboards** via Grafana  
+- 🛠️ Fully **customizable** with Kustomize  
+- 🧪 Integrated with **GitHub Actions** for CI/CD
 
 
 
