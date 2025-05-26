@@ -10,7 +10,7 @@ spec:
       app.kubernetes.io/name: zapier-deployment
   namespaceSelector:
     matchNames:
-      - zapier-deployment
+      - zapier-prod
   endpoints:
     - port: metrics
       interval: 15s
