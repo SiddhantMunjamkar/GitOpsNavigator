@@ -12,7 +12,7 @@ spec:
     canary:
       steps:
         - setWeight: 20
-        - pause: { duration: 10 }
+        - pause: {duration: 10}
         - setWeight: 40
         - pause: { duration: 20 }
         - setWeight: 60
@@ -22,18 +22,14 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: zapier-deployment
+      app:  zapier-deployment
   template:
     metadata:
       labels:
-        app: zapier-deployment
-      annotations:
-      prometheus.io/scrape: "true"
-      prometheus.io/port: "3000" # ← Use the port your app listens on
-      prometheus.io/path: "/metrics" # ← Optional if using a custom path
+        app:  zapier-deployment
     spec:
       containers:
-        - name: zapier-deployment
+        - name:  zapier-deployment
           image: siddhantmunjamkar/zapier-clone:latest
           ports:
             - name: http
