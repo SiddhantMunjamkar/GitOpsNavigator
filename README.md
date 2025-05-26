@@ -43,8 +43,9 @@ helm repo update
 
 kubectl create namespace monitoring
 
-helm install prometheus prometheus-community/prometheus \
-  --namespace monitoring 
+
+helm install prometheus prometheus-community/kube-prometheus-stack \
+  --namespace monitoring
 
   ```
 
@@ -57,6 +58,13 @@ helm repo update
 helm install grafana grafana/grafana \
   --namespace monitoring 
 
+# Password:
+kubectl get secret prometheus-grafana -n monitoring -o jsonpath="{.data.admin-password}" | base64 --decode
+
+# Port-forward:
+kubectl port-forward svc/prometheus-grafana 3000:80 -n monitoring
+
+
   ```
 
 ### 3. Install ArgoRollouts into your Cluster
@@ -66,13 +74,28 @@ https://argoproj.github.io/argo-rollouts/installation/#controller-installation
 kubectl create namespace argo-rollouts
 kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml
 
+ #2. Watching rollouts
+#Via CLI:
+kubectl argo rollouts get rollout -n <name_space> zapier-deployment --watch
+
+#Dashboard:
+kubectl argo rollouts dashboard
+
 ```
 
 ### 4. Install ArgoCD into your Cluster
 https://argoproj.github.io/argo-cd/getting_started/#cluster-installation
 ```bash
+helm repo add argo https://argoproj.github.io/argo-helm
+helm repo update
 kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+helm install argocd argo/argo-cd --namespace argocd
+
+#Access ArgoCD UI:
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+# Password:
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode
 ```
 
 ### 5. Install ArgoCD Application
