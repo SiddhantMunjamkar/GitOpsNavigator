@@ -19,6 +19,7 @@ This project demonstrates a complete GitOps-based CI/CD pipeline using **ArgoCD*
 
 ## 📁 Project Structure
 
+```plaintext
 manifests/
 ├── argocd/
 │   ├── basic-application.yaml
@@ -48,7 +49,8 @@ manifests/
 │           ├── Canary-AnalysisTemplate.yaml
 │           └── kustomization.yaml
 
----
+
+```
 
 ## 🗺️ Architecture Diagram
 
@@ -62,4 +64,4 @@ This GitOps system works as follows:
 6. Grafana visualizes everything.
 
 📷 **System Design Image**  
-![GitOpsNavigator Architecture](images/ArgoCD_project_architecture.png)
+<img src="images/ArgoCD_project_architecture.png" width="400" alt="GitOpsNavigator Architecture" />
