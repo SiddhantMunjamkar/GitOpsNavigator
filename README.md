@@ -17,40 +17,6 @@ This project demonstrates a complete GitOps-based CI/CD pipeline using **ArgoCD*
 
 ---
 
-## 📁 Project Structure
-
-```plaintext
-manifests/
-├── argocd/
-│   ├── basic-application.yaml
-│   ├── kustomize-application-dev.yaml
-│   ├── kustomize-application-prod.yaml
-│   └── kustomize-application-staging.yaml
-├── gitops/
-├── kustomize/
-│   ├── base/
-│   │   ├── deployment.yaml
-│   │   ├── service.yaml
-│   │   └── kustomization.yaml
-│   └── overlays/
-│       ├── dev/
-│       │   ├── replicas-patch.yaml
-│       │   └── kustomization.yaml
-│       ├── staging/
-│       │   ├── rollout-bluegreen.yaml
-│       │   ├── service-rollout-active.yaml
-│       │   ├── replicas-patch.yaml
-│       │   └── kustomization.yaml
-│       └── prod/
-│           ├── rollout-canary.yaml
-│           ├── service-rollout-canary.yaml
-│           ├── service-monitor.yaml
-│           ├── replicas-patch.yaml
-│           ├── Canary-AnalysisTemplate.yaml
-│           └── kustomization.yaml
-
-
-```
 
 ## 🗺️ Architecture Diagram
 
@@ -64,4 +30,65 @@ This GitOps system works as follows:
 6. Grafana visualizes everything.
 
 📷 **System Design Image**  
-<img src="images/ArgoCD_project_architecture.png" width="400" alt="GitOpsNavigator Architecture" />
+<img src="images/ArgoCD_project_architecture.png" width="300" alt="GitOpsNavigator Architecture" />
+
+---
+## ⚙️ Setup Instructions
+
+### 1. Install Prometheus (Monitoring)
+
+```bash
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+kubectl create namespace monitoring
+
+helm install prometheus prometheus-community/prometheus \
+  --namespace monitoring 
+
+  ```
+
+### 2. Install Grafana (Metrics Dashboards)
+
+```bash
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+
+helm install grafana grafana/grafana \
+  --namespace monitoring 
+
+  ```
+
+### 3. Install ArgoRollouts into your Cluster
+https://argoproj.github.io/argo-rollouts/installation/#controller-installation
+
+```bash
+kubectl create namespace argo-rollouts
+kubectl apply -n argo-rollouts -f https://github.com/argoproj/argo-rollouts/releases/latest/download/install.yaml
+
+```
+
+### 4. Install ArgoCD into your Cluster
+https://argoproj.github.io/argo-cd/getting_started/#cluster-installation
+```bash
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+### 5. Install ArgoCD Application
+https://argoproj.github.io/argo-cd/user-guide/kustomize/#install-the-application-resource
+```bash
+# For dev deployment
+kubectl apply -n argocd -f manifests/argocd/kustomize-application-dev.yaml
+
+# For staging deployment
+kubectl apply -n argocd -f manifests/argocd/kustomize-application-staging.yaml
+
+# For prod deployment
+kubectl apply -n argocd -f manifests/argocd/kustomize-application-prod.yaml
+
+```
+
+
+
+
