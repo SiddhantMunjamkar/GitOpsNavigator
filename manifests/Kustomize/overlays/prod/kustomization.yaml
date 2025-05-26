@@ -5,6 +5,7 @@ resources:
   - rollout-canary.yaml
   - service-rollout-canary.yaml
   - service-monitor.yaml
+  - Canary-AnalysisTemplate.yaml
 
 namePrefix: prod-
 nameSuffix: ""
