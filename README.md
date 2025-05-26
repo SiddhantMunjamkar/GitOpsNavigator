@@ -19,7 +19,6 @@ This project demonstrates a complete GitOps-based CI/CD pipeline using **ArgoCD*
 
 ## 📁 Project Structure
 
-```plaintext
 manifests/
 ├── argocd/
 │   ├── basic-application.yaml
@@ -48,6 +47,8 @@ manifests/
 │           ├── replicas-patch.yaml
 │           ├── Canary-AnalysisTemplate.yaml
 │           └── kustomization.yaml
+
+---
 
 ## 🗺️ Architecture Diagram
 
